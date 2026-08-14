@@ -190,6 +190,10 @@ spec:
                       type: object
                     type: array
                 type: object
+              connectTimeout:
+                maximum: 60
+                minimum: 1
+                type: integer
               destinationRef:
                 properties:
                   level:
@@ -226,6 +230,10 @@ spec:
                 - message: fragmentRef.level can only be specified when fragmentRef.name
                     is provided
                   rule: '!(has(self.level) && !has(self.name))'
+              readTimeout:
+                maximum: 86400
+                minimum: 1
+                type: integer
               service:
                 properties:
                   port:
@@ -1220,7 +1228,7 @@ spec:
         env:
         - name: GODEBUG
           value: fips140=on
-        image: sapse/sap-transp-proxy-operator:1.9.9
+        image: sapse/sap-transp-proxy-operator:1.9.10
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
