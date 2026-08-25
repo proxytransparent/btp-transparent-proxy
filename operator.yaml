@@ -78,6 +78,7 @@ spec:
                       enum:
                       - OAuth2JWTBearer
                       - OAuth2ClientCredentials
+                      - OAuth2TechnicalUserPropagation
                       type: string
                     secretRef:
                       properties:
@@ -1228,7 +1229,7 @@ spec:
         env:
         - name: GODEBUG
           value: fips140=on
-        image: sapse/sap-transp-proxy-operator:1.9.10
+        image: sapse/sap-transp-proxy-operator:1.9.11
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
